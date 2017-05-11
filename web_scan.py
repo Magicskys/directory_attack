@@ -21,11 +21,8 @@ def build_wordlist(wordlist_file,extension):
         if extension is not None:
             word=word.replace("%.type%",extension)
             words.put(word)
-            print word
         else:
             words.put(word)
-            print word
-
     return words
 
 def dir_bruter(word_queue):
@@ -51,7 +48,6 @@ if __name__ == '__main__':
     for i in range(threads):
         t=threading.Thread(target=dir_bruter(word_queue))
         t.start()
-    print write_list
     with open("./log.txt", "w") as f:
         for i in range(len(write_list)):
             f.write(write_list[i]+'\n')
